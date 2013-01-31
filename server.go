@@ -129,7 +129,11 @@ func (self *server) ListenAndServe(ip net.IP, port int) error {
 	var err error
 
 	self.Printf("Starting sock server for %v:%d", ip, port)
-	self.Continue()
+	l, err = self.listen(conns, ip, port)
+	if err != nil {
+		return err
+	}
+	self.instances++
 
 	for {
 		select {
@@ -177,11 +181,15 @@ func (self *server) SetRuler(ruler Ruler) {
 }
 
 func (self *server) Continue() {
-	self.running <- true
+	for i := 0; i < self.instances; i++ {
+		self.running <- true
+	}
 }
 
 func (self *server) Stop() {
-	self.running <- false
+	for i := 0; i < self.instances; i++ {
+		self.running <- false
+	}
 }
 
 // vim: set noet ts=2 sw=2:
