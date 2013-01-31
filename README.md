@@ -23,7 +23,7 @@ http://golang.org/
 ## SOCKSv5 RFC 1928
 http://www.ietf.org/rfc/rfc1928.txt
 ## Full online docs
-http://go.pkgdoc.org/github.com/nmaier/gosocksv5d
+http://godoc.org/github.com/nmaier/gosocksv5d
 
 # LICENSE
 MIT-License; see LICENSE file
