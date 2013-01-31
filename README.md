@@ -3,10 +3,11 @@ gosocksv5d
 A SOCKS v5 (RFC 1928) server implementation in Go.
 
 # Quick Start
-  * Install Go (obviously)
-  * `go get -u "github.com/nmaier/gosocksv5d"`
-  * Implement your server
-    ```go
+  1. Install Go (obviously)
+  2. `go get -u "github.com/nmaier/gosocksv5d"`
+  3. Implement your server.
+
+```go
 package main
 import "github.com/nmaier/gosocksv5d"
 func main() {
