@@ -20,7 +20,7 @@
 // THE SOFTWARE.
 
 /*
-Package socksv5d implements a SOCKS v5 server.
+Package gosocksv5d implements a SOCKS v5 server.
 
 The server supports a subset of RFC 1928:
  - Only "No Authentication" auth method
@@ -31,9 +31,9 @@ Domain names will be resolved using the specified or default resolver
 (net.LookupIP).
 
 Examples:
-	server := socksv5d.NewServer()
+	server := gosocksv5d.NewServer()
 	server.SetDNSResolver(myResolver)
-	server.ListenAndServe(net.IPv4zero, uint16(12345)) // Never returns
+	server.ListenAndServe(net.IPv4zero, 12345) // Never returns
 */
 package gosocksv5d
 
@@ -52,17 +52,17 @@ type Server interface {
 	ListenAndServe(ip net.IP, port int) error
 
 	// Set a new DNS resolver, in case you don't like the default one.
-	// See: socksv5d.DefaultResolver
+	// See: gosocksv5d.DefaultResolver
 	// Attempting to set this after calling ListenAndServer will panic()
 	SetDNSResolver(resolver DNSResolver)
 
 	// Set a new Logger.
-	// See: socksv5d.DefaultLogger.
+	// See: gosocksv5d.DefaultLogger.
 	// Attempting to set this after calling ListenAndServer will panic()
 	SetLogger(logger Logger)
 
 	// Set a new Ruler.
-	// See: socksv5d.DefaultRuler.
+	// See: gosocksv5d.DefaultRuler.
 	// Attempting to set this after calling ListenAndServer will panic()
 	SetRuler(ruler Ruler)
 
