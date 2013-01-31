@@ -9,6 +9,7 @@ A SOCKS v5 (RFC 1928) server implementation in Go.
 
 ```go
 package main
+import "net"
 import "github.com/nmaier/gosocksv5d"
 func main() {
 	server := gosocksv5d.NewServer()
